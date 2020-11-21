@@ -1,0 +1,192 @@
+.nav-lokal {
+  background-color: #efc501 !important;
+}
+
+.text-theme {
+  color: #efc501 !important;
+}
+
+.bg-theme {
+  background-color: #efc501 !important;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.color-white, .color-white a {
+  color: white !important;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-65 {
+  width: 65%;
+}
+
+.mtop-11 {
+  margin-top: 11px;
+}
+
+.mb-2m {
+  margin-bottom: 2em;
+}
+
+.mb-1m {
+  margin-bottom: 1em;
+}
+
+.custom-nav, main, .custom-footer {
+  max-width: 1080px;
+  width: 100%;
+  margin: auto;
+}
+
+.custom-nav li {
+  float: left;
+  list-style: none;
+}
+
+.f-12 {
+  font-size: 12px !important;
+}
+
+.f-15 {
+  font-size: 15px;
+}
+
+.f-bold {
+  font-weight: bold;
+}
+
+.img-logo-long {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.cart-li {
+  padding: 5px;
+  vertical-align: middle;
+  text-align: center;
+  width: 5em;
+  font-size: 2em;
+}
+
+.search-btn-group {
+  height: 100%;
+  margin-top: 12px;
+}
+
+.search-btn-group button {
+  background-color: white;
+  color: #efc501;
+  border: none;
+}
+
+body {
+  background-color: #f7f7f7 !important;
+}
+
+main {
+  min-height: 30em;
+}
+
+footer {
+  width: 100%;
+  padding: 1em;
+  background-color: #dfdfdf;
+  color: #8a8989;
+}
+
+footer a {
+  color: #8a8989;
+}
+
+.nav-footer li.nav-item {
+  float: left;
+  width: 25%;
+}
+
+.nav-footer {
+  list-style: none;
+  width: 100%;
+  margin-left: -50px;
+}
+
+.nav-footer li a:hover {
+  color: #8a8989;
+}
+
+.footer-list {
+  list-style: none;
+  margin-left: -22px;
+}
+
+.footer-list li {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.img-app-footer {
+  max-width: 150px;
+  width: 100%;
+}
+
+.logo-signup {
+  width: 180px;
+  margin-bottom: 2em;
+}
+
+.mt-2m {
+  margin-top: 2em;
+}
+
+.mt-6m {
+  margin-top: 6em;
+}
+
+.signup-container {
+  box-shadow: 1px 0px 12px 3px #cdcdcd;
+}
+
+.signup-hr {
+  border-top: 2px solid white;
+}
+
+.signup-span {
+  background-color: #efc501;
+  margin-bottom: 2em;
+  display: block;
+  margin-top: -14px;
+  margin-right: auto;
+  width: 116px;
+  margin-left: auto;
+}
+
+.fb-btn {
+  background-color: #425daf !important;
+}
+
+.google-btn {
+  background-color: #da4c3a !important;
+}
+
+.fb-btn, .google-btn {
+  color: white !important;
+  margin-bottom: 1em;
+}
+
+.pd-2m {
+  padding: 2em;
+}
+
+.btn-theme {
+  background-color: #efc501 !important;
+  border-color: #efc501 !important;
+  color: white !important;
+}
+
+/*# sourceMappingURL=style.css.map */
