@@ -20,7 +20,7 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
-
+    protected $username;
     /**
      * Where to redirect users after login.
      *
@@ -36,5 +36,29 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $this->username = $this->findUsername();
+    }
+
+    public function findUsername()
+    {
+        $userEmail = request()->input('userEmail');
+
+        // dd(filter_var($userEmail, FILTER_VALIDATE_EMAIL));
+ 
+        $fieldType = filter_var($userEmail, FILTER_VALIDATE_EMAIL) ? 'userEmail' : 'userEmail';
+ 
+        request()->merge([$fieldType => $userEmail]);
+ 
+        return $fieldType;
+    }
+ 
+    /**
+     * Get username property.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return $this->username;
     }
 }

@@ -22,3 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('sign-in','Auth\SignInController@sign_in')->name('signin');
+Route::post('sign-up','Auth\SignInController@signup')->name('signup');

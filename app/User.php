@@ -9,14 +9,21 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
+    protected $table    = 'users';
+    public $timestamps  = true;
+    public $primaryKey  = 'userId';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+    public function findForPassport($identifier) {
+            return $this->orWhere('userEmail', $identifier)->first();
+    }
+    
     protected $fillable = [
-        'name', 'email', 'password',
+        'userFullName', 'userEmail', 'userMobile',
     ];
 
     /**

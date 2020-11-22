@@ -58,15 +58,15 @@
                                 @endif
                             @else
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle custom-dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->userFullName }} <span class="caret"></span>
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <div class="dropdown-menu dropdown-menu-right custom-dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item " href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
+                                            <span class="color-gray">{{ __('Logout') }}</span>
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -114,12 +114,7 @@
                 <div class="row ">
                     <div class="col-md-12 text-justify mb-2m">
                         <h4>LokaldatPH</h4>
-                        <p class="f-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p class="f-12">LokaldatPH is a street style fashion community platform where select Filipino designers and boutiques showcase their unique artistic products and styles online.</p>
                     </div>
                     <div class="col-md-12 mb-2m">
                         <ul class=" nav-footer">
@@ -201,4 +196,5 @@
 </body>
 <script type="text/javascript" src="{{asset('js/jquery-3.5.1.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('bootstrap-4.3.1-dist/js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('custom/js/global.js?'.time())}}"></script>
 </html>

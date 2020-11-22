@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <h1 class="text-center text-theme mb-1m">Sign Up</h1>
+            <h1 class="text-center text-theme mb-1m">Sign In</h1>
            <div class="row signup-container mb-2m">
                <div class="col-md-6 bg-theme text-center text-white">
                    <img src="/media/img/logo-white.png" class="logo-signup mt-2m">
@@ -20,14 +20,14 @@
                    </div>
                </div>
                <div class="col-md-6 bg-white ">
-                    <form method="POST" action="{{ route('login') }}" class="row pd-2m">
+                    <form method="POST" action="{{ route('signin') }}" class="row pd-2m">
                         @csrf
                        <div class="col-md-12">
                            <div class="form-group">
-                                <label for="email" class=" col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <label for="userEmail" class=" col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                <input id="userEmail" type="email" class="form-control @error('userEmail') is-invalid @enderror" name="userEmail" value="{{ old('userEmail') }}" required autocomplete="email" autofocus>
 
-                                @error('email')
+                                @error('userEmail')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

@@ -20,12 +20,12 @@
                    </div>
                </div>
                <div class="col-md-6 bg-white ">
-                    <form method="POST" action="{{ route('register') }}" class="row pd-2m">
+                    <form method="POST" action="{{ route('signup') }}" class="row pd-2m">
                         @csrf
                        <div class="col-md-12">
                            <div class="form-group">
                                <label for="name" class=" col-form-label text-md-right f-12">{{ __('Full Name') }}</label>
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Enter your full name here">
+                                <input id="name" type="text" class="form-control @error('userFullName') is-invalid @enderror" name="userFullName" value="{{ old('userFullName') }}" required autocomplete="name" autofocus placeholder="Enter your full name here">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -35,9 +35,9 @@
                            </div>
                             <div class="form-group">
                                 <label for="email" class="col-form-label text-md-right f-12">Mobile Number</label>
-                                <input id="mobile" type="text" class="form-control" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile" placeholder="Enter your mobile no. here">
+                                <input id="mobile" type="text" class="form-control" name="userMobile" value="{{ old('userMobile') }}" required autocomplete="mobile" placeholder="Enter your mobile no. here">
 
-                                @error('email')
+                                @error('userMobile')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -45,9 +45,9 @@
                            </div>
                            <div class="form-group">
                                 <label for="email" class="col-form-label text-md-right f-12">{{ __('E-Mail Address') }}</label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Enter your email address here">
+                                <input id="email" type="email" class="form-control @error('userEmail') is-invalid @enderror" name="userEmail" value="{{ old('userEmail') }}" required autocomplete="email" placeholder="Enter your email address here">
 
-                                @error('email')
+                                @error('userEmail')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
