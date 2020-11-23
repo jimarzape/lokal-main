@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Model\BrandModel;
+use App\Model\PopularProduct;
 
 class HomeController extends Controller
 {
@@ -14,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -24,7 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        dd(Auth::user());
-        return view('home');
+        // dd(Auth::user());
+        $this->data['_brands'] = BrandModel::generic()->inRandomOrder()->take(20)->get();
+        $this->data['_popular'] = PopularProduct::generic()->take(32)->get();
+        return view('home', $this->data);
     }
 }

@@ -193,4 +193,119 @@ footer a {
   color: #8a8989 !important;
 }
 
+.color-red {
+  color: red;
+}
+
+.img-100 {
+  width: 100%;
+  object-fit: contain;
+}
+
+.item-container {
+  background: #dfdfdf;
+  width: 100%;
+  margin-top: 2em;
+  padding: 5px;
+  color: #8a8989 !important;
+}
+
+.item-header {
+  padding: 5px;
+  border-bottom: 1px solid #cdcdcd;
+}
+
+.MultiCarousel {
+  overflow: hidden;
+  padding: 1px;
+  width: 100%;
+  position: relative;
+  margin-top: 5px;
+}
+
+.MultiCarousel .MultiCarousel-inner {
+  transition: 1s ease all;
+  float: left;
+}
+
+.MultiCarousel .MultiCarousel-inner .item {
+  float: left;
+}
+
+.MultiCarousel .MultiCarousel-inner .item > div {
+  text-align: center;
+  padding: 10px;
+  margin: 2px;
+  background: #f1f1f1;
+  color: #666;
+}
+
+.MultiCarousel .leftLst, .MultiCarousel .rightLst {
+  position: absolute;
+  border-radius: 50%;
+  top: calc(50% - 20px);
+}
+
+.MultiCarousel .leftLst {
+  left: 0;
+}
+
+.MultiCarousel .rightLst {
+  right: 0;
+}
+
+.MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over {
+  pointer-events: none;
+  background: #ccc;
+}
+
+.img-item-thumb {
+  height: 125px !important;
+  width: 125px !important;
+  object-fit: contain;
+}
+
+.btn-noborder {
+  border: none !important;
+}
+
+.btn-gold {
+  background-color: #efc501 !important;
+  color: white !important;
+}
+
+.carousel-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.item-thumb {
+  padding: 5px;
+  background-color: #f1f1f1;
+  margin: 2px;
+}
+
+.no-padding {
+  padding: unset !important;
+}
+
+.item-grid {
+  margin-left: 0em !important;
+  margin-right: 0em !important;
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+.price-container {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.pull-right {
+  float: right;
+}
+
 /*# sourceMappingURL=style.css.map */
