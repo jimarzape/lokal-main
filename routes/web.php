@@ -29,3 +29,4 @@ Route::post('sign-up','Auth\SignInController@signup')->name('signup');
 
 
 Route::get('/test','TestController@index');
+Route::get('/test/rate','TestController@rate');

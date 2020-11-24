@@ -21,16 +21,14 @@ class ProductModel extends Model
     public function scopegeneric($query)
     {
         return $query->select('products.*', 
-            'item_rating.rating',
-            'item_rating.comment',
-            'item_rating.rating_date',
-            'item_rating.rating_id',
+            DB::raw('IFNULL(product_rate.rate_value, 0) as rate_value'),
+            DB::raw('IFNULL(product_rate.rate_count, 0) as rate_count'),
             'is_on_sale.sale_price',
-            // DB::raw("IFNULL(ROUND(SUM(item_rating.rating)/COUNT(item_rating.rating),1),0) as 'product_rating'"),
-            DB::raw("0 as 'product_rating'"),
+            'popular_products.total_sold',
             DB::raw("IFNULL(is_on_sale.sale_price,0.00) as 'product_sale_price'"))
-              ->leftjoin('item_rating','item_rating.product_id','products.product_id')
+              ->leftjoin('product_rate','product_rate.product_id','products.product_id')
               ->leftjoin('is_on_sale','is_on_sale.product_id','products.product_id')
+              ->leftjoin('popular_products','popular_products.product_id','products.product_id')
               ->where('products.product_active', 1)
               ->where('products.product_archived', 0);
     }
