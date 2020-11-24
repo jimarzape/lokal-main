@@ -18,6 +18,7 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/products/{url}', 'ProductController@index')->name('product_url');
 
 Auth::routes();
 
@@ -30,3 +31,4 @@ Route::post('sign-up','Auth\SignInController@signup')->name('signup');
 
 Route::get('/test','TestController@index');
 Route::get('/test/rate','TestController@rate');
+Route::get('/test/friendly','TestController@friendly_url');

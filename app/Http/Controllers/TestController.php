@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Model\PopularProduct;
 use App\Model\SellerItem;
 use App\Model\ProductRate;
+use App\Model\ProductModel;
 use DB;
 
 class TestController extends Controller
@@ -38,6 +39,23 @@ class TestController extends Controller
             $save->rate_value   = ($rate->total_rate / $rate->total_qty);
             $save->rate_count   = $rate->total_qty;
             $save->save();
+        }
+    }
+
+    public function friendly_url()
+    {
+        $_products = ProductModel::get();
+        foreach($_products as $products)
+        {
+            // dd($products);
+            $url = strtolower(str_replace('"', '',str_replace(' ','-',$products->product_name))).'-'.strtolower(rand_char(11)).'-'.$products->product_identifier;
+
+            $update = new ProductModel;
+            $update->exists = true;
+            $update->product_id = $products->product_id;
+            $update->friendly_url = $url.'.html';
+            $update->save();
+
         }
     }
 }

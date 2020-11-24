@@ -32,7 +32,7 @@ class HomeController extends Controller
         $this->data['_brands'] = BrandModel::generic()->inRandomOrder()->take(20)->get();
         $this->data['_popular'] = PopularProduct::selectRaw('popular_products.*, products.*, is_on_sale.sale_price, IFNULL(product_rate.rate_value, 0) as rate_value, IFNULL(product_rate.rate_count, 0) as rate_count')->generic()->take(32)->get();
         $this->data['_sale'] = SaleModel::generic()->selectRaw('*, IFNULL(product_rate.rate_value, 0) as rate_value, IFNULL(product_rate.rate_count, 0) as rate_count')->inRandomOrder()->take(20)->get();
-        $this->data['_items'] = ProductModel::generic()->inRandomOrder()->take(30)->get();
+        $this->data['_items'] = ProductModel::generic()->inRandomOrder()->paginate(42);
         // dd($this->data['_sale']);
         return view('home', $this->data);
     }

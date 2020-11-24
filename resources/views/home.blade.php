@@ -37,7 +37,7 @@
                     <div class="MultiCarousel-inner">
                         @foreach($_sale as $sale)
                         <div class="item">
-                            <div class="">
+                            <a class="link-plain" href="{{route('product_url', $sale->friendly_url)}}">
                                 <div class="item-thumb">
                                     
                                     <div class="text-center">
@@ -55,7 +55,7 @@
                                         <div class="item-rating" data-rating="2.5"></div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         @endforeach
                     </div>
@@ -69,7 +69,7 @@
             <div class="item-body ">
                 <div class="item-grid row">
                     @foreach($_popular as $popular)
-                    <div class="col-md-2 col-sm-4 no-padding">
+                    <a class="col-md-2 col-sm-4 no-padding link-plain" href="{{route('product_url', $popular->friendly_url)}}">
                         <div class="item-thumb">
                             @if($popular->sale_price != null)
                                 <div class="discount-span">
@@ -89,7 +89,7 @@
                                 <span class="pull-right">{{knumber($popular->total_sold)}}&nbsp;Sold</span>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     @endforeach
                 </div>
             </div>
@@ -100,7 +100,7 @@
             <div class="item-body ">
                 <div class="item-grid row">
                     @foreach($_items as $items)
-                    <div class="col-md-2 col-sm-4 no-padding">
+                    <a class="col-md-2 col-sm-4 no-padding link-plain" href="{{route('product_url', $popular->friendly_url)}}">
                         <div class="item-thumb">
                             @if($items->sale_price != null)
                                 <div class="discount-span">
@@ -120,7 +120,7 @@
                                 <span class="pull-right">{{knumber($items->total_sold)}}&nbsp;Sold</span>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     @endforeach
                 </div>
             </div>
