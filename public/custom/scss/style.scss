@@ -71,6 +71,10 @@ $footer-text: #8a8989;
 {
 	font-size: 15px;
 }
+.f-20
+{
+	font-size: 20px;
+}
 .f-bold
 {
 	font-weight: bold;
@@ -167,6 +171,10 @@ footer a{
 {
 	margin-top: 6em;
 }
+.mt-5p
+{
+	margin-top: 5px;
+}
 
 .signup-container
 {
@@ -201,6 +209,11 @@ footer a{
 	color:white !important;
 	margin-bottom: 1em;
 }
+.pd-1m
+{
+	padding:1em;
+}
+
 .pd-2m
 {
 	padding:2em;
@@ -295,6 +308,14 @@ footer a{
 	width: 125px !important;
 	object-fit: contain;
 }
+
+.img-item-sm
+{
+	height: 50px !important;
+	width: 50px !important;
+	object-fit: contain;
+}
+
 .btn-noborder
 {
 	border:none !important;
@@ -304,6 +325,14 @@ footer a{
 	background-color:$base-color !important;
 	color: white !important;
 }
+
+.btn-gold-outline
+{
+	border-color:$base-color !important;
+	border:1px solid;
+	color:$base-color !important;
+}
+
 .carousel-label
 {
 	white-space: nowrap;
@@ -379,4 +408,78 @@ a.link-plain, a.link-plain:hover
 {
 	text-decoration: none !important;
 	color:inherit !important;
+}
+
+.item-discount
+{
+	margin-top: 0px;
+    position: relative;
+    display: flex;
+    font-size: 15px;
+    text-decoration: line-through;
+    font-style: italic;
+    color: gray;
+}
+.percent-discount
+{
+	position: absolute;
+    background-color: red;
+    color: white;
+    padding: 3px 10px;
+    display: inherit;
+    top: 0;
+    left: 7em;
+    font-size: 15px;
+    font-weight: bold;
+}
+.list-variant
+{
+	list-style: none;
+	margin-left: -3em;
+}
+.list-variant li{
+	float: left;
+    
+}
+.list-variant label
+{
+	padding: 10px;
+    border: 1px solid;
+    min-width: 4em;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.lh-2m
+{
+	line-height: 2em;
+}
+.card-header-white
+{
+	background-color:white !important
+}
+
+.review-list
+{
+	list-style: none;
+	margin-left: -1em;
+	margin-right: 1em;
+	width: 100%;
+}
+.review-list li
+{
+	margin-bottom: 2em;
+    border-bottom: 1px solid #cdcdcd;
+    padding-bottom: 1em;
 }

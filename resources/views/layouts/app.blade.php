@@ -9,21 +9,18 @@
 
     <title>LokaldatPH</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Scripts -->\
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="icon" type="image/png" sizes="16x16" href="/media/img/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('media/img/logo.png')}}">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset('custom/css/style.css?'.time())}}">
-    <!-- <link rel="stylesheet" type="text/css" href="{{asset('fontawesome-free-5.15.1-web/css/fontawesome.min.css')}}"> -->
     <link rel="stylesheet" type="text/css" href="{{asset('bootstrap-4.3.1-dist/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('plugin/star-rating/css/star-rating-svg.css')}}">
-    <!-- <script type="text/javascript" src="{{asset('fontawesome-free-5.15.1-web/js/fontawesome.min.js')}}"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     @yield('css')
 </head>
@@ -197,9 +194,10 @@
         </footer>
     </div>
 </body>
-<script type="text/javascript" src="{{asset('js/jquery-3.5.1.min.js')}}"></script>
+
 <script type="text/javascript" src="{{asset('bootstrap-4.3.1-dist/js/bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('plugin/star-rating/jquery.star-rating-svg.js')}}"></script>
+<script type="text/javascript" src="{{asset('plugin/star-rating/jquery.star-rating-svg.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('custom/js/star.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('custom/js/global.js?'.time())}}"></script>
 @yield('js')
 </html>

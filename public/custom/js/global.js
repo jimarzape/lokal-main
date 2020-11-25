@@ -6,10 +6,6 @@ $(document).ready(function(){
 		$(".custom-dropdown-menu").hide();
 	});
 
-	
-
-});
-$(function() {
 	$(".item-rating").starRating({
 	    totalStars: 5,
 	    emptyColor: 'lightgray',
@@ -17,6 +13,18 @@ $(function() {
 	    activeColor: '#efc501',
 	    strokeWidth: 0,
 	    useGradient: false,
-	    readOnly: true
+	    readOnly: true,
+	    starSize: 15,
+	});
+
+	$(".item-rating-20").starRating({
+	    totalStars: 5,
+	    emptyColor: 'lightgray',
+	    hoverColor: '#efc501',
+	    activeColor: '#efc501',
+	    strokeWidth: 0,
+	    useGradient: false,
+	    readOnly: true,
+	    starSize: 20,
 	});
 });

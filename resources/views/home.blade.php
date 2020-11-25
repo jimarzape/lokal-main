@@ -52,7 +52,8 @@
                                         <span class="pull-right">{{knumber($sale->total_sold).' Sold' }}</span>
                                     </div>
                                     <div class="rating-container">
-                                        <div class="item-rating" data-rating="2.5"></div>
+                                        <span class="item-rating" data-rating="{{$sale->rate_value}}"></span>
+                                        @if($sale->rate_count > 0)<span class="f-12">({{knumber($sale->rate_count)}})</span>@endif
                                     </div>
                                 </div>
                             </a>
@@ -88,6 +89,10 @@
                                 <span class="color-red">₱&nbsp;{{number_format($popular->product_price, 2)}}</span>
                                 <span class="pull-right">{{knumber($popular->total_sold)}}&nbsp;Sold</span>
                             </div>
+                            <div class="rating-container">
+                                <span class="item-rating" data-rating="{{$popular->rate_value}}"></span>
+                                @if($popular->rate_count > 0)<span class="f-12">({{knumber($popular->rate_count)}})</span>@endif
+                            </div>
                         </div>
                     </a>
                     @endforeach
@@ -118,6 +123,10 @@
                             <div class="price-container">
                                 <span class="color-red">₱&nbsp;{{number_format($items->product_price, 2)}}</span>
                                 <span class="pull-right">{{knumber($items->total_sold)}}&nbsp;Sold</span>
+                            </div>
+                            <div class="rating-container">
+                                <span class="item-rating" data-rating="{{$items->rate_value}}"></span>
+                                @if($items->rate_count > 0)<span class="f-12">({{knumber($items->rate_count)}})</span>@endif
                             </div>
                         </div>
                     </a>

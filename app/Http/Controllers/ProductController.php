@@ -19,7 +19,7 @@ class ProductController extends Controller
     	{
 
     		$this->data['product'] = ProductModel::generic()->where('friendly_url', $url)
-    										->With('images')
+    										->with('images')
     										->with('variant')
     										->first();
     		if(is_null($this->data['product']))
@@ -27,9 +27,16 @@ class ProductController extends Controller
     			$this->data['message'] = 'Product does not or no longer exists.';
     			return view('product.error', $this->data);
     		}
-
+            
+            $this->data['_store'] = ProductModel::generic()
+                                                ->where('products.product_id', '!=', $this->data['product']->product_id)
+                                                ->where('seller_id', $this->data['product']->seller_id)
+                                                ->inRandomOrder()
+                                                ->take(30)
+                                                ->get();
+                                                
 	    	$this->data['_ratings'] = ItemRating::generic($this->data['product']->product_id)->get();
-	    	// dd($this->data['product']);
+
 	    	return view('product.index', $this->data);
     	}
     	catch(\Exception $e)
