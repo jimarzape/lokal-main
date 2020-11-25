@@ -100,7 +100,7 @@
             <div class="item-body ">
                 <div class="item-grid row">
                     @foreach($_items as $items)
-                    <a class="col-md-2 col-sm-4 no-padding link-plain" href="{{route('product_url', $popular->friendly_url)}}">
+                    <a class="col-md-2 col-sm-4 no-padding link-plain" href="{{route('product_url', $items->friendly_url)}}">
                         <div class="item-thumb">
                             @if($items->sale_price != null)
                                 <div class="discount-span">

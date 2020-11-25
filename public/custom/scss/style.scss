@@ -27,6 +27,7 @@ $footer-text: #8a8989;
 {
 	color:white !important;
 }
+
 .w-100
 {
 	width:100%;
@@ -225,6 +226,14 @@ footer a{
 	width: 100%;
 	object-fit: contain;
 }
+.img-product
+{
+	width: 100%;
+	max-height: 450px;
+	object-fit: contain;
+	object-position: top;
+}
+
 .item-container
 {
 	background:$dark-bg;
