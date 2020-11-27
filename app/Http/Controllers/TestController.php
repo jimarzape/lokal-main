@@ -7,6 +7,8 @@ use App\Model\PopularProduct;
 use App\Model\SellerItem;
 use App\Model\ProductRate;
 use App\Model\ProductModel;
+use App\Model\BrandModel;
+use App\Model\ProductSearch;
 use DB;
 
 class TestController extends Controller
@@ -42,6 +44,20 @@ class TestController extends Controller
         }
     }
 
+    public function brand_url()
+    {
+        // strtolower(str_replace('"', '',str_replace(' ','-',$request->product_name))).'-'.strtolower(rand_char(11)).'-'.$product_identifier.'.html';
+        $_brand = BrandModel::get();
+        foreach($_brand as $brand)
+        {
+            $update = new BrandModel;
+            $update->exists = true;
+            $update->brand_id = $brand->brand_id;
+            $update->brand_url = strtolower(str_replace('"', '',str_replace(' ','-',$brand->brand_name))).'-'.strtolower(rand_char(11)).'-'.$brand->brand_identifier.'.html';
+            $update->save();
+        }
+    }
+
     public function friendly_url()
     {
         $_products = ProductModel::get();
@@ -56,6 +72,20 @@ class TestController extends Controller
             $update->friendly_url = $url.'.html';
             $update->save();
 
+        }
+    }
+
+    public function product_search()
+    {
+        $_products = ProductModel::leftjoin('brands','brands.brand_id','products.brand_id')->get();
+        foreach($_products as $products)
+        {
+            $search = $products->product_name.' '.$products->brand_name;
+            ProductSearch::where('product_id', $products->product_id)->delete();
+            $update                 = new ProductSearch;
+            $update->product_id     = $products->product_id;
+            $update->product_body   = $search;
+            $update->save();
         }
     }
 }

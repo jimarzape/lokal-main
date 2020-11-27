@@ -9,7 +9,7 @@
 
     <title>LokaldatPH</title>
 
-    <!-- Scripts -->\
+    <!-- Scripts -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -63,6 +63,11 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right custom-dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a href="{{route('account')}}" class="dropdown-item "><span class="color-gray">Account</span></a>
+                                        <a href="#" class="dropdown-item "><span class="color-gray">Order History</span></a>
+                                        <a href="#" class="dropdown-item "><span class="color-gray">Want List</span></a>
+                                        <a href="#" class="dropdown-item "><span class="color-gray">Following Store</span>/a>
+                                        <a href="#" class="dropdown-item "><span class="color-gray">Reviews</span></a>
                                         <a class="dropdown-item " href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
@@ -74,6 +79,7 @@
                                         </form>
                                     </div>
                                 </li>
+                               
                             @endguest
                         </ul>
                     </div>
@@ -86,17 +92,18 @@
                                 </a>
                             </li>
                             <li class="w-65">
-                                <div class="input-group">
-                                    <input type="search" class="form-control mtop-11" name="" placeholder="Search here">
-                                    <div class="input-group-append search-btn-group">
+                                <form class="input-group" method="GET" action="{{route('product_seach')}}">
+                                    <input type="search" class="form-control mtop-11" name="search" placeholder="Search here" value="{{Request::input('search')}}">
+                                    <div class="input-group-append search-btn-group" >
                                         <button class="btn" type="button"><i class="fas fa-search"></i></button>
                                     </div>
-                                </div>
+                                </form>
                             </li>
                             <li class="cart-li">
                                 <a href="#">
                                     <i class="fas fa-shopping-cart"></i>
                                 </a>
+                                <span class="cart-badge">10</span>
                             </li>
                         </ul>
 

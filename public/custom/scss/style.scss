@@ -54,10 +54,14 @@ $footer-text: #8a8989;
 	width: 100%;
 	margin:auto;
 }
-.custom-nav li
+.custom-nav li, .product-misc-list li
 {
 	float: left;
 	list-style: none;
+}
+.product-misc-list li
+{
+	padding:10px;
 }
 .f-10
 {
@@ -110,7 +114,7 @@ body
 {
 	background-color:$light-bg !important;
 }
-main
+main, .minh-30m
 {
 	min-height: 30em;
 	
@@ -218,6 +222,12 @@ footer a{
 {
 	padding:2em;
 }
+
+.pd-10m
+{
+	padding:20em 0em;
+}
+
 .btn-theme
 {
 	background-color:$base-color !important;
@@ -482,4 +492,31 @@ input[type=number] {
 	margin-bottom: 2em;
     border-bottom: 1px solid #cdcdcd;
     padding-bottom: 1em;
+}
+.disabled-class
+{
+	border-color: #cdcdcd !important;
+	color: #cdcdcd !important;
+}
+.disabled-class:hover
+{
+	cursor: not-allowed;
+}
+
+.cart-badge
+{
+    background-color: red;
+    padding: 3px 5px;
+    color: white;
+    border-radius: 5px;
+    font-size: 10px;
+    position: absolute;
+    bottom: 4px;
+}
+
+@media only screen and (max-width: 600px) {
+  .col-sm-4
+  {
+  	width: 33.33% !important;
+  }
 }

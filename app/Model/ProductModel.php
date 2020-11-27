@@ -11,13 +11,6 @@ class ProductModel extends Model
     public $timestamps  = false;
     public $primaryKey  = 'product_id';
 
-    public function scopesearch($query, $search)
-    {
-    	return $query->where('products.product_name','LIKE','%'.$search.'%')
-    		  // ->groupBy('products.product_id')
-    		  ->orderBy('products.product_name');
-    }
-
     public function scopegeneric($query)
     {
         return $query->select('products.*', 
@@ -48,6 +41,12 @@ class ProductModel extends Model
     public function variant()
     {
         return $this->hasMany('App\Model\StockModel', 'product_id', 'product_id');
+    }
+
+    public function scopesearch($query, $search)
+    {
+        return $query->leftjoin('product_search','product_search.product_id','products.product_id')
+                     ->whereRaw("MATCH(product_search.product_body)AGAINST('+".mysql_escape($search)."*' IN BOOLEAN MODE)"); 
     }
 
 }

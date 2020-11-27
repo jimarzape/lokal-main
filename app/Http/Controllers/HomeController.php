@@ -9,7 +9,7 @@ use App\Model\PopularProduct;
 use App\Model\SaleModel;
 use App\Model\ProductModel;
 
-class HomeController extends Controller
+class HomeController extends MainController
 {
     /**
      * Create a new controller instance.
@@ -18,7 +18,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+        
+
     }
 
     /**

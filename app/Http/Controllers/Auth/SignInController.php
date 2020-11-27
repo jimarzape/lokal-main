@@ -18,6 +18,8 @@ class SignInController extends Controller
 
     public function sign_in(Request $request)
     {
+        
+
     	$user = User::where('userEmail', $request->userEmail)->first();
     	if(is_null($user))
     	{
@@ -32,8 +34,10 @@ class SignInController extends Controller
     		$checker = Hash::check($request->password, $user->password);
     		if($checker)
     		{
+                // dd(session()->get('url.intended'));
     			Auth::login($user);
-    			return redirect()->intended('/');
+                return redirect()->intended();
+    			// return redirect()->intended('/');
     		}
     		else
     		{

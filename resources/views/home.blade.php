@@ -136,7 +136,7 @@
         </div>
         <div class="row justify-content-center mt-2m">
             <div class="col-sm-4">
-                <button class="btn btn-gold btn-block">SEE MORE</button>
+                <a class="btn btn-gold btn-block" href="{{route('daily_feeds')}}">SEE MORE</a>
             </div>
         </div>
     </div>

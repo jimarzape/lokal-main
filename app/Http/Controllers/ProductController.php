@@ -6,15 +6,18 @@ use Illuminate\Http\Request;
 use App\Model\ProductModel;
 use App\Model\ItemRating;
 
-class ProductController extends Controller
+class ProductController extends MainController
 {
 	public function __construct()
 	{
-
+        
 	}
+
+    
 
     public function index($url)
     {
+        // dd(session()->get('url.intended'));
     	try
     	{
 
@@ -36,7 +39,7 @@ class ProductController extends Controller
                                                 ->get();
                                                 
 	    	$this->data['_ratings'] = ItemRating::generic($this->data['product']->product_id)->get();
-
+            // dd($this->data['product']);
 	    	return view('product.index', $this->data);
     	}
     	catch(\Exception $e)
@@ -44,6 +47,24 @@ class ProductController extends Controller
     		$this->data['message'] = 'Server Error';
     		return view('product.error', $this->data);
     	}
-    	
+    }
+
+    public function search(Request $request)
+    {
+        $items = ProductModel::generic();
+        if($request->search != '')
+        {
+            $items = $items->search($request->search);
+        }
+        $this->data['_items'] = $items->orderBy('products.product_name')->paginate(30);
+        $this->data['label'] = 'SEARCH FOR "'.$request->search.'"';
+        return view('product.search', $this->data);
+    }
+
+    public function daily()
+    {
+        $this->data['_items'] = ProductModel::generic()->inRandomOrder()->paginate(30);
+        $this->data['label'] = 'DAILY FEEDS';
+        return view('product.search', $this->data);
     }
 }
