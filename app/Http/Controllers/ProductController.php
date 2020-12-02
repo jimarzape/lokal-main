@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\ProductModel;
 use App\Model\ItemRating;
+use App\Model\WishModel;
+use App\Model\Cart;
+use Auth;
+use Crypt;
 
 class ProductController extends MainController
 {
@@ -13,11 +17,21 @@ class ProductController extends MainController
         
 	}
 
-    
+    public function cart_qty()
+    {
+        try
+        {
+            return  Cart::byuser(Auth::user()->userId)->sum('quantity');
+        }
+        catch(\Exception $e)
+        {
+            return 0;
+        }
+    }
 
     public function index($url)
     {
-        // dd(session()->get('url.intended'));
+        // dd($this->data['cart_qty']);
     	try
     	{
 
@@ -40,6 +54,7 @@ class ProductController extends MainController
                                                 
 	    	$this->data['_ratings'] = ItemRating::generic($this->data['product']->product_id)->get();
             // dd($this->data['product']);
+            $this->data['cart_qty'] = $this->cart_qty();
 	    	return view('product.index', $this->data);
     	}
     	catch(\Exception $e)
@@ -56,15 +71,43 @@ class ProductController extends MainController
         {
             $items = $items->search($request->search);
         }
-        $this->data['_items'] = $items->orderBy('products.product_name')->paginate(30);
-        $this->data['label'] = 'SEARCH FOR "'.$request->search.'"';
+        $this->data['cart_qty'] = $this->cart_qty();
+        $this->data['_items']   = $items->orderBy('products.product_name')->paginate(30);
+        $this->data['label']    = 'SEARCH FOR "'.$request->search.'"';
         return view('product.search', $this->data);
     }
 
     public function daily()
     {
-        $this->data['_items'] = ProductModel::generic()->inRandomOrder()->paginate(30);
-        $this->data['label'] = 'DAILY FEEDS';
+        $this->data['cart_qty'] = $this->cart_qty();
+        $this->data['_items']   = ProductModel::generic()->inRandomOrder()->paginate(30);
+        $this->data['label']    = 'DAILY FEEDS';
         return view('product.search', $this->data);
     }
+
+    public function wish(Request $request)
+    {
+        if(!is_null(Auth::user()))
+        {
+            // WishModel
+            $product_id = Crypt::decrypt($request->ref);
+            $check      = WishModel::where('user_id', Auth::user()->userId)->where('product_id', $product_id)->first();
+            if(is_null($check))
+            {
+                $product            = ProductModel::where('product_id',$product_id)->first();
+                $wish               = new WishModel;
+                $wish->product_id   = $product_id;
+                $wish->product_identifier = $product->product_identifier;
+                $wish->user_token   = Auth::user()->userToken;
+                $wish->user_id      = Auth::user()->userId;
+                $wish->save();
+            }
+            else
+            {
+                WishModel::where('wishlist_id', $check->wishlist_id)->delete();
+            }
+            
+        }
+    }
+
 }

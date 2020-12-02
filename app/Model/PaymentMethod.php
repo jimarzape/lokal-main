@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Model;
+
+use Illuminate\Database\Eloquent\Model;
+
+class PaymentMethod extends Model
+{
+    protected $table    = 'payment_methods';
+    public $timestamps  = true;
+    public $primaryKey  = 'id';
+
+    public function scopedata($query)
+    {
+    	return $query->where('active',1);
+    }
+}

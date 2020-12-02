@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 <div class="row">
     <div class="col-md-12 mb-2m">
@@ -24,7 +25,9 @@
                 @php
                     $stocks_quantity = 0;
                 @endphp
-    			<div class="col-md-6">
+    			<form class="col-md-6 form-cart" method="POST" action="{{route('cart_add_modal')}}">
+                    @csrf
+                    <input type="hidden" name="product" value="{{Crypt::encrypt($product->product_id)}}">
     				<div class="row">
     					<div class="col-md-12">
     						<h3>{{$product->product_name}}</h3>
@@ -46,10 +49,10 @@
                         <div class="col-md-4">
                             <ul class="product-misc-list">
                                <li>
-                                   <a href="#" class="f-20"><i class="fas fa-share-alt"></i></i></a>    
+                                   <!-- <a href="#" class="f-20"><i class="fas fa-share-alt"></i></i></a>     -->
                                </li> 
                                <li>
-                                   <a href="#" class="f-20"><i class="far fa-heart"></i></a>    
+                                   <a href="{{route('product_wish')}}" data-ref="{{Crypt::encrypt($product->product_id)}}" class="f-20 btn-wish" title="add to wish list"><i class="far fa-heart"></i></a>    
                                </li> 
                             </ul>
                                        
@@ -88,9 +91,9 @@
                                 <div class="col-md-4">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <button class="btn btn-outline-primary btn-minus" type="button"><i class="fas fa-minus"></i></button>
+                                            <button class="btn btn-outline-primary btn-minus" type="button" ><i class="fas fa-minus"></i></button>
                                         </div>
-                                        <input type="number" name="" class="form-control text-center cart-qty" value="1" required placeholder="0" max="{{$stocks_quantity}}">
+                                        <input type="number" name="quantity" class="form-control text-center cart-qty" value="1" required placeholder="0" max="{{$stocks_quantity}}">
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-primary btn-plus " type="button"><i class="fas fa-plus"></i></button>
                                         </div>
@@ -105,10 +108,10 @@
                             <hr>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button class="btn btn-block btn-gold-outline mtop-11"><i class="fas fa-cart-plus"></i>&nbsp;Add to cart</button>
+                                    <button class="btn btn-block btn-gold-outline mtop-11 btn-cart" data-role="cart" data-url="{{route('cart_add_modal')}}" data-toggle="modal" data-backdrop="static" data-target="#cart-modal" type="button"><i class="fas fa-cart-plus"></i>&nbsp;Add to cart</button>
                                 </div>
                                 <div class="col-md-6">
-                                    <button class="btn btn-block btn-gold mtop-11">Checkout</button>
+                                    <button class="btn btn-block btn-gold mtop-11 btn-cart" type="button" data-role="checkout" data-url="{{route('checkout_direct')}}">Checkout</button>
                                 </div>
                             </div> 
                         </div>
@@ -116,11 +119,11 @@
                         <div class="col-md-12 text-center">
                             <hr>
                             <p class="color-red">Out of stock</p>
-                            <button class="btn btn-block btn-gold-outline"><i class="far fa-heart"></i>&nbsp;Add to want list</button>
+                            <button class="btn btn-block btn-gold-outline" type="button"><i class="far fa-heart"></i>&nbsp;Add to Wish List</button>
                         </div>
                         @endif
     				</div>
-    			</div>
+    			</form>
     		</div>
     	</div>
     </div>
@@ -196,6 +199,14 @@
                     @endforeach
                </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div id="cart-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content cart-content">
+            
         </div>
     </div>
 </div>

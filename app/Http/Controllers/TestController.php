@@ -9,6 +9,9 @@ use App\Model\ProductRate;
 use App\Model\ProductModel;
 use App\Model\BrandModel;
 use App\Model\ProductSearch;
+use App\Model\BarangayModel;
+use App\Model\CityModel;
+use App\Model\ProvinceModel;
 use DB;
 
 class TestController extends Controller
@@ -87,5 +90,40 @@ class TestController extends Controller
             $update->product_body   = $search;
             $update->save();
         }
+    }
+
+    public function address()
+    {
+        $_province = ProvinceModel::get();
+        $_city = CityModel::get();
+        $_brgy = BarangayModel::get();
+
+        foreach($_province as $province)
+        {
+            $update = new ProvinceModel;
+            $update->exists = true;
+            $update->id = $province->id;
+            $update->provDesc = ucwords(strtolower($province->provDesc));
+            $update->save();
+        }
+
+        foreach($_city as $city)
+        {
+            $update = new CityModel;
+            $update->exists = true;
+            $update->id = $city->id;
+            $update->citymunDesc = ucwords(strtolower($city->citymunDesc));
+            $update->save();
+        }
+
+        foreach($_brgy as $brgy)
+        {
+            $update = new BarangayModel;
+            $update->exists = true;
+            $update->id = $brgy->id;
+            $update->brgyDesc = ucwords(strtolower($brgy->brgyDesc));
+            $update->save();
+        }
+        return ucwords('TEST this');
     }
 }

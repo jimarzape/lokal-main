@@ -6,7 +6,8 @@
     <meta name="referrer" content="strict-origin" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <meta name="modal-login" content="{{route('modal_signin')}}">
+    @yield('meta')
     <title>LokaldatPH</title>
 
     <!-- Scripts -->
@@ -20,8 +21,10 @@
     <link rel="stylesheet" type="text/css" href="{{asset('custom/css/style.css?'.time())}}">
     <link rel="stylesheet" type="text/css" href="{{asset('bootstrap-4.3.1-dist/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('plugin/star-rating/css/star-rating-svg.css')}}">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+    <script type="text/javascript" src="{{asset('js/jquery-3.5.1.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/a076d05399.js')}}"></script>
+    <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
     @yield('css')
 </head>
 <body>
@@ -37,7 +40,7 @@
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">HOME SELLER</a>
+                                <a class="nav-link" href="http://lokalseller.lokaldatph.com/">HOME SELLER</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">DOWNLOAD APP</a>
@@ -64,8 +67,8 @@
 
                                     <div class="dropdown-menu dropdown-menu-right custom-dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a href="{{route('account')}}" class="dropdown-item "><span class="color-gray">Account</span></a>
-                                        <a href="#" class="dropdown-item "><span class="color-gray">Order History</span></a>
-                                        <a href="#" class="dropdown-item "><span class="color-gray">Want List</span></a>
+                                        <a href="{{route('order')}}" class="dropdown-item "><span class="color-gray">Order History</span></a>
+                                        <a href="{{route('wish')}}" class="dropdown-item "><span class="color-gray">Wish List</span></a>
                                         <a href="#" class="dropdown-item "><span class="color-gray">Following Store</span>/a>
                                         <a href="#" class="dropdown-item "><span class="color-gray">Reviews</span></a>
                                         <a class="dropdown-item " href="{{ route('logout') }}"
@@ -95,15 +98,15 @@
                                 <form class="input-group" method="GET" action="{{route('product_seach')}}">
                                     <input type="search" class="form-control mtop-11" name="search" placeholder="Search here" value="{{Request::input('search')}}">
                                     <div class="input-group-append search-btn-group" >
-                                        <button class="btn" type="button"><i class="fas fa-search"></i></button>
+                                        <button class="btn" type="submit"><i class="fas fa-search"></i></button>
                                     </div>
                                 </form>
                             </li>
                             <li class="cart-li">
-                                <a href="#">
+                                <a href="{{route('cart')}}">
                                     <i class="fas fa-shopping-cart"></i>
                                 </a>
-                                <span class="cart-badge">10</span>
+                                <span class="cart-badge cart-main-qty {{isset($cart_qty) ? $cart_qty <= 0 ? 'hide' : '' : 'hide'}}">{{isset($cart_qty) ? $cart_qty : 0}}</span>
                             </li>
                         </ul>
 
@@ -115,7 +118,7 @@
         <main class="py-4">
             @yield('content')
         </main>
-
+        
         <footer>
             <div class="custom-footer">
                 <div class="row ">
@@ -155,7 +158,7 @@
                                         <a href="#">About Us</a>
                                     </li>
                                     <li>
-                                        <a href="#">Privacy & Policy</a>
+                                        <a href="{{route('privacy_policy')}}">Privacy & Policy</a>
                                     </li>
                                     <li>
                                         <a href="#">Home Seller</a>

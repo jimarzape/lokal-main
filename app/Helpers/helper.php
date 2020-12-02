@@ -103,3 +103,39 @@ if ( !function_exists('mysql_escape'))
         return $inp; 
     }
 }
+
+function manila_only($id, $province)
+{
+  try
+  {
+    $arr = array(1 => true,2 => true);
+    $prv = array(
+      'METRO-MANILA' => true,
+      'Manila' => true,
+      'NCR, Second District' => true,
+      'NCR, Third District' => true,
+      'NCR, Fourth District' => true
+    );
+    if(isset($arr[$id]))
+    {
+      if(isset($prv[$province]))
+      {
+        return false;
+      }
+      else
+      {
+        
+        return true;
+      }
+      
+    }    
+    else
+    {
+      return false;
+    }
+  }
+  catch(\Exception $e)
+  {
+    return false;
+  }
+}

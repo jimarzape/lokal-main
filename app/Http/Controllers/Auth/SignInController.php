@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 use App\User;
+use Crypt;
+use DB;
 
 class SignInController extends Controller
 {
@@ -80,12 +82,17 @@ class SignInController extends Controller
         }
         else
         {
-        	$user = new User;
-        	$user->userFullName = $request->userFullName;
-        	$user->userEmail = $request->userEmail;
-        	$user->userMobile = $request->userMobile;
-        	$user->password = Hash::make($request->password);
+            $token                 = md5(date('YmdHis').''.rand_char(5));
+        	$user                  = new User;
+        	$user->userFullName    = $request->userFullName;
+        	$user->userEmail       = $request->userEmail;
+        	$user->userMobile      = $request->userMobile;
+        	$user->password        = Hash::make($request->password);
+            $user->userId          = $user->userId;
+            $user->userToken       = $token;
+            $user->userPassword    = DB::raw('AES_ENCRYPT("'.mysql_escape($request->password).'", "'.mysql_escape($token).'")');
         	$user->save();
+
         	Auth::login($user);
 
         	return redirect()->intended('/');

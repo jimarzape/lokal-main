@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class BarangayModel extends Model
 {
-    // protected $table    = 'brands';
-    // public $timestamps  = false;
-    // public $primaryKey  = 'brand_id';
+    protected $table    = 'refbrgy';
+    public $timestamps  = false;
+    public $primaryKey  = 'id';
 }

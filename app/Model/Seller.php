@@ -12,7 +12,7 @@ class Seller extends Model
 
     public function scopedata($query, $id)
     {
-    	return $query->leftjoin('refprovince','refprovince.provCode = sellers.province')
+    	return $query->leftjoin('refprovince','refprovince.provCode','sellers.province')
     		  		 ->leftjoin('refcitymun','refcitymun.citymunCode','sellers.city')
     		  		 ->leftjoin('refbrgy','refbrgy.brgyCode','sellers.brgy')
     		  		 ->where('sellers.id', $id);
