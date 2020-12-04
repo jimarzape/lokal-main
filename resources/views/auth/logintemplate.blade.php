@@ -5,13 +5,13 @@
            <div class="col-md-6 bg-theme text-center text-white">
                <img src="/media/img/logo-white.png" class="logo-signup mt-2m">
                <div class="signup-hr"></div>
-               <span class="signup-span mb-1m">Sing In With</span>
+               <!-- <span class="signup-span mb-1m">Sign In With</span> -->
                <div class="row justify-content-center mb-2m">
                    <div class="col-md-8">
-                       <button class="btn btn-block fb-btn">SIGN IN WITH FACEBOOK</button>
+                       <!-- <button class="btn btn-block fb-btn">SIGN IN WITH FACEBOOK</button> -->
                    </div>
                    <div class="col-md-8">
-                       <button class="btn btn-block google-btn">SIGN IN WITH GOOGLE</button>
+                       <!-- <button class="btn btn-block google-btn">SIGN IN WITH GOOGLE</button> -->
                    </div>
                </div>
            </div>
@@ -57,6 +57,9 @@
                                     {{ __('Forgot Your Password?') }}
                             </a>
                        </div>
+                       <div class="form-group text-center">
+                               <p class="f-12">Don't have an account? Singup <a href="{{ route('register') }}">here</a></p>
+                           </div>
                    </div>
                </form>
            </div>

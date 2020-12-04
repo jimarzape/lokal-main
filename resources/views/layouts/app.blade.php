@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="modal-login" content="{{route('modal_signin')}}">
     @yield('meta')
+    <meta name="robots" content="index, follow" />
     <title>LokaldatPH</title>
 
     <!-- Scripts -->
@@ -42,9 +43,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="http://lokalseller.lokaldatph.com/">HOME SELLER</a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="#">DOWNLOAD APP</a>
-                            </li>
+                            </li> -->
                         </ul>
 
                         <!-- Right Side Of Navbar -->
@@ -161,7 +162,7 @@
                                         <a href="{{route('privacy_policy')}}">Privacy & Policy</a>
                                     </li>
                                     <li>
-                                        <a href="#">Home Seller</a>
+                                        <a href="http://lokalseller.lokaldatph.com/">Home Seller</a>
                                     </li>
                                 </ul>
                             </li>
@@ -169,24 +170,24 @@
                                 <a href="#" class="nav-link f-bold">FOLLOW US</a>
                                 <ul class="footer-list">
                                     <li>
-                                        <a href="#"><i class="fab fa-facebook-square"></i>&nbsp;Facebook</a>
+                                        <a href="https://www.facebook.com/lokaldatphofficial/"><i class="fab fa-facebook-square"></i>&nbsp;Facebook</a>
                                     </li>
-                                    <li>
+                                   <!--  <li>
                                         <a href="#"><i class="fab fa-twitter-square"></i>&nbsp;Twitter</a>
-                                    </li>
+                                    </li> -->
                                     <li>
-                                        <a href="#"><i class="fab fa-instagram-square"></i>&nbsp;Instagram</a>
+                                        <a href="https://www.instagram.com/lokaldatph/"><i class="fab fa-instagram-square"></i>&nbsp;Instagram</a>
                                     </li>
-                                    <li>
+                                   <!--  <li>
                                         <a href="#"><i class="fab fa-google-plus-square"></i>&nbsp;Google Plus</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link f-bold">LOKALDATPH APP</a>
                                 <ul class="footer-list">
                                     <li>
-                                        <a href="#">
+                                        <a href="https://play.google.com/store/apps/details?id=com.app.lokaldatph&fbclid=IwAR1-chv81oFNTx6aGXKR3hK9FkSWCTgRZTauTz15KfwoJbCr0uJHJ5f1yBg">
                                             <img src="/media/img/google-play.png" class="img-app-footer">
                                         </a>
                                     </li>

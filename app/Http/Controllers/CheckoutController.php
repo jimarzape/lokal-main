@@ -83,7 +83,7 @@ class CheckoutController extends Controller
         $pay_method = PaymentMethod::where('id', $request->payment_method)->first();
 
         $order_id       = $order->id;
-        $_cart          = Cart::list(Auth::user()->userId)->get()->toArray();
+        $_cart          = Cart::generic()->list(Auth::user()->userId)->genericselect()->get()->toArray();
         $collect        = collect($_cart);
         $group_arr      = $collect->groupBy('seller_id');
         // $_cart          = json_decode($request->product_items);

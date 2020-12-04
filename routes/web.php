@@ -66,3 +66,4 @@ Route::get('/test/friendly','TestController@friendly_url');
 Route::get('/test/brand_url','TestController@brand_url');
 Route::get('/test/product_search','TestController@product_search');
 Route::get('/test/address','TestController@address');
+Route::get('/test/image','TestController@re_url');

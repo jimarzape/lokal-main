@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Model\PopularProduct;
 use App\Model\SellerItem;
 use App\Model\ProductRate;
+use App\Model\ProductImageModel;
 use App\Model\ProductModel;
 use App\Model\BrandModel;
 use App\Model\ProductSearch;
@@ -125,5 +126,42 @@ class TestController extends Controller
             $update->save();
         }
         return ucwords('TEST this');
+    }
+
+    public function re_url()
+    {
+        // $_products = ProductModel::get();
+        // foreach($_products as $products)
+        // {
+        //     $url = $products->product_image;
+        //     $arr = explode('http://lokalseller.lokaldatph.com/', $url);
+        //     if(count($arr) == 2)
+        //     {
+        //         // dd($url);
+        //         $replace = str_replace('http://lokalseller.lokaldatph.com/', 'https://lokaldatph.com/', $url);
+        //         $update = new ProductModel;
+        //         $update->exists = true;
+        //         $update->product_id = $products->product_id;
+        //         $update->product_image = $replace;
+        //         $update->save();
+        //     }
+        // }
+
+        $_images = ProductImageModel::get();
+        foreach($_images as $image)
+        {
+            $url = $image->image_url;
+            $arr = explode('http://lokalseller.lokaldatph.com/', $url);
+            if(count($arr) == 2)
+            {
+                // dd($url);
+                $replace = str_replace('http://lokalseller.lokaldatph.com/', 'https://lokaldatph.com/', $url);
+                $update = new ProductImageModel;
+                $update->exists = true;
+                $update->product_image_id = $image->product_image_id;
+                $update->image_url = $replace;
+                $update->save();
+            }
+        }
     }
 }

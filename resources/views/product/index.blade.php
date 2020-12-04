@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+@section('meta')
+<meta property="fb:app_id"          content="3317553595029931" /> 
+<meta property="og:type"            content="article" /> 
+<meta property="og:title"           content="{{$product->product_name}}"/> 
+<meta property="og:image"           content="{{$product->product_image}}" /> 
+<meta property="og:description"    content="LokaldatPH is a street style fashion community platform where select Filipino designers and boutiques showcase their unique artistic products and styles online." />
+@endsection
 
 @section('content')
 <div class="row">

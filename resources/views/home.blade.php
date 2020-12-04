@@ -1,5 +1,14 @@
 @extends('layouts.app')
 
+@section('meta')
+<meta  name="description" content="LokaldatPH is a street style fashion community platform where select Filipino designers and boutiques showcase their unique artistic products and styles online.">
+<meta property="fb:app_id"          content="3317553595029931" /> 
+<meta property="og:type"            content="article" /> 
+<meta property="og:title"           content="LokaldatPH" /> 
+<meta property="og:image"           content="{{asset('media/img/banner.png')}}" /> 
+<meta property="og:description"    content="LokaldatPH is a street style fashion community platform where select Filipino designers and boutiques showcase their unique artistic products and styles online." />
+@endsection
+
 @section('css')
 @endsection
 
